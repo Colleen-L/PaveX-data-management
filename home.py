@@ -275,48 +275,48 @@ else:
         "View Drives": "SELECT * FROM drives LIMIT 10;",
         "Count Images": "SELECT COUNT(*) AS total_images FROM images;",
         "Images Per Category": """SELECT cat.Name AS category_name, 
-                                  COUNT(ic.Image_ID) AS total_images\n
-                                  FROM categories cat\n
-                                  JOIN image_categories ic ON cat.Category_ID = ic.Category_ID\n
-                                  GROUP BY cat.Name\n
+                                  COUNT(ic.Image_ID) AS total_images
+                                  FROM categories cat
+                                  JOIN image_categories ic ON cat.Category_ID = ic.Category_ID
+                                  GROUP BY cat.Name
                                   ORDER BY total_images DESC""",
         "Most Common Category Per Segment": """SELECT s.Name AS segment_name,
                                                 cat.Name AS most_common_cat,
-                                                COUNT(*) AS image_count\n
-                                                FROM image_categories ic\n
-                                                JOIN categories cat ON ic.Category_ID = cat.Category_ID\n
-                                                JOIN images i on ic.Image_ID = i.Image_ID\n
-                                                JOIN camera_images ci ON i.Image_ID = ci.Image_ID\n
-                                                JOIN cameras c ON ci.Camera_ID = c.Camera_ID\n
-                                                JOIN drives d ON c.Drive_ID = d.Drive_ID\n
-                                                JOIN segments s ON d.Segment_ID = s.Segment_ID\n
-                                                GROUP BY s.Name, cat.Name\n
+                                                COUNT(*) AS image_count
+                                                FROM image_categories ic
+                                                JOIN categories cat ON ic.Category_ID = cat.Category_ID
+                                                JOIN images i on ic.Image_ID = i.Image_ID
+                                                JOIN camera_images ci ON i.Image_ID = ci.Image_ID
+                                                JOIN cameras c ON ci.Camera_ID = c.Camera_ID
+                                                JOIN drives d ON c.Drive_ID = d.Drive_ID
+                                                JOIN segments s ON d.Segment_ID = s.Segment_ID
+                                                GROUP BY s.Name, cat.Name
                                                 ORDER BY s.Name, image_count DESC;""",
         "Drives with Longest Timespan": """SELECT d.Name AS drive_name,
                                             s.Name as segment_name,
                                             MIN(i.Timestamp) AS start_time,
                                             MAX(i.Timestamp) AS end_time,
                                             TIMESTAMP_DIFF(MAX(i.Timestamp), 
-                                            MIN(i.Timestamp), SECOND) AS duration_seconds\n
-                                            FROM drives d\n
-                                            JOIN segments s on d.Segment_ID = s.Segment_ID\n
-                                            JOIN cameras c ON d.Drive_ID = c.Drive_ID\n
-                                            JOIN camera_images ci ON c.Camera_ID = ci.Camera_ID\n
-                                            JOIN images i ON ci.Image_ID = i.Image_ID\n
-                                            GROUP BY d.Name, s.Name\n
-                                            ORDER BY duration_seconds DESC\n
+                                            MIN(i.Timestamp), SECOND) AS duration_seconds
+                                            FROM drives d
+                                            JOIN segments s on d.Segment_ID = s.Segment_ID
+                                            JOIN cameras c ON d.Drive_ID = c.Drive_ID
+                                            JOIN camera_images ci ON c.Camera_ID = ci.Camera_ID
+                                            JOIN images i ON ci.Image_ID = i.Image_ID
+                                            GROUP BY d.Name, s.Name
+                                            ORDER BY duration_seconds DESC
                                             LIMIT 10;""", 
         "Top Categories by Segment": """SELECT s.Name AS segment_name,
                                         cat.Name AS category_name,
-                                        COUNT(*) AS image_count\n
-                                        FROM image_categories ic\n
-                                        JOIN categories cat ON ic.Category_ID = cat.Category_ID\n
-                                        JOIN images i ON ic.Image_ID = i.Image_ID\n
-                                        JOIN camera_images ci ON i.Image_ID = ci.Image_ID\n
-                                        JOIN cameras c ON ci.Camera_ID = c.Camera_ID\n
-                                        JOIN drives d ON c.Drive_ID = d.Drive_ID\n
-                                        JOIN segments s ON d.Segment_ID = s.Segment_ID\n
-                                        GROUP BY segment_name, category_name\n
+                                        COUNT(*) AS image_count
+                                        FROM image_categories ic
+                                        JOIN categories cat ON ic.Category_ID = cat.Category_ID
+                                        JOIN images i ON ic.Image_ID = i.Image_ID
+                                        JOIN camera_images ci ON i.Image_ID = ci.Image_ID
+                                        JOIN cameras c ON ci.Camera_ID = c.Camera_ID
+                                        JOIN drives d ON c.Drive_ID = d.Drive_ID
+                                        JOIN segments s ON d.Segment_ID = s.Segment_ID
+                                        GROUP BY segment_name, category_name
                                         ORDER BY segment_name, image_count DESC;""",
     }
     choice = st.selectbox("Quick query:", list(queries.keys()))
@@ -342,7 +342,8 @@ else:
     # text area for user input
     user_query = st.text_area(
         "Or enter your own SQL query:",
-        queries[choice]
+        queries[choice],
+        height=300,
     )
 
     # automatically fix dataset references
