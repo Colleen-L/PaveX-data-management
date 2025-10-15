@@ -7,19 +7,56 @@ from google.cloud import bigquery
 from dotenv import load_dotenv
 load_dotenv()
 import re
+# for log file
+import logging
+logging.basicConfig(filename="etl_log.txt", level=logging.INFO)
 
 # initialize BigQuery Client
 client = bigquery.Client()
-# client obtains project id
 PROJECT_ID = client.project
-# client obtains dataset id
-DATASET_ID = f"{PROJECT_ID}.autonomous_dataset"
-# reassign client to project ID
+
+# define dataset name and ID correctly
+DATASET_NAME = "autonomous_dataset"
+DATASET_ID = f"{PROJECT_ID}.{DATASET_NAME}"
+
+# recreate the client (explicit project)
 client = bigquery.Client(project=PROJECT_ID)
-# creates dataset
+
+# create dataset if it doesn't exist
 dataset = bigquery.Dataset(DATASET_ID)
 dataset.location = "US"
-client.create_dataset(dataset, exists_ok = True)
+try:
+    client.create_dataset(dataset, exists_ok=True)
+    logging.info(f"Dataset confirmed or created: {DATASET_ID}")
+except Exception as e:
+    logging.error(f"Dataset creation error: {e}")
+
+# Debug print
+st.write("Using dataset:", DATASET_ID)
+
+##########################################
+# logging and error capture
+##########################################
+def upload_all_dfs(json_folder, mode="replace"):
+    json_files = get_unprocessed_files(json_folder)
+    for json_file in json_files:
+        full_path = os.path.join(json_folder, json_file)
+        try:
+            dfs = process_json_files(full_path)
+            for table_name, df in dfs.items():
+                upload_df(df, table_name, mode)
+            logging.info(f"successfully uploaded {json_file}")
+        except Exception as e:
+            logging.error(f"failed to process {json_file}: {e}")
+
+##########################################
+# function to get the unprocessed files from a folder
+# for future processing
+##########################################
+def get_unprocessed_files(json_folder):
+    processed = set(run_query(f"SELECT DISTINCT Source_File FROM `{DATASET_ID}.segments`")['Source_File'])
+    all_files = [f for f in os.listdir(json_folder) if f.endswith(".json")]
+    return [f for f in all_files if f not in processed]
 
 ##########################################
 # helper function that obtains timestamp for the data;
@@ -211,10 +248,36 @@ def process_json_files(json_file):
     }
 
 ##########################################
+# helper function that validates the processed dataframes
+# before they are uploaded to BigQuery
+##########################################
+def validate_dataframe(df, table_name):
+    if df.empty:
+        raise ValueError(f"{table_name} is empty.")
+    if df.isnull().sum().sum() > 0:
+        st.warning(f"{table_name} has missing values.")
+
+##########################################
+# helper function that checks and adjusts schema dynamically
+# before uploading
+##########################################
+def ensure_table_schema(df, table_name):
+    table_id = f"{DATASET_ID}.{table_name}"
+    try:
+        table = client.get_table(table_id)
+        existing_cols = {field.name for field in table.schema}
+        new_cols = [col for col in df.columns if col not in existing_cols]
+        if new_cols:
+            st.warning(f"New columns detected for {table_name}: {new_cols}")
+    except Exception:
+        st.info(f"Table {table_name} not found, will be created automatically.")
+
+##########################################
 # helper function that takes a pandas df and table name then uploads 
 # the DataFrame as a table into the dataset in BigQuery
 ##########################################
 def upload_df(df, table_name, mode):
+    ensure_table_schema(df, table_name)
     table_id = f"{DATASET_ID}.{table_name}"
 
     if mode == "append":
@@ -234,15 +297,22 @@ def upload_df(df, table_name, mode):
 ##########################################
 # function that takes the DataFrames and uploads them to BigQuery
 ##########################################
-def upload_all_dfs(json_folder, mode="replace"):
-    json_files = [f for f in os.listdir(json_folder) if f.endswith(".json")]
+def upload_all_dfs(json_folder, mode="append"):
+    json_files = get_unprocessed_files(json_folder)
+    st.write(f"Found {len(json_files)} unprocessed files.")
 
     for json_file in json_files:
         full_path = os.path.join(json_folder, json_file)
-        dfs = process_json_files(full_path)
-
-        for table_name, df in dfs.items():
-            upload_df(df, table_name, mode)
+        try:
+            dfs = process_json_files(full_path)
+            for table_name, df in dfs.items():
+                validate_dataframe(df, table_name)
+                upload_df(df, table_name, mode)
+            logging.info(f"Successfully uploaded {json_file}")
+            st.success(f"Uploaded {json_file}")
+        except Exception as e:
+            logging.error(f"Failed to process {json_file}: {e}")
+            st.error(f"Error processing {json_file}: {e}")
 
 ##########################################
 # function that runs a query from frontend UI to BigQuery
@@ -255,19 +325,32 @@ def run_query(query):
    except Exception as e:
       st.error(f"Error running query: {e}")
       return pd.DataFrame()
+  
+##########################################
+# function for query caching in streamlie
+# this prevents unnecessary re-running of the same queries.
+##########################################
+@st.cache_data(ttl=300)
+def cached_run_query(query):
+    query_job = client.query(query)
+    return query_job.to_dataframe()
 
 # uploaded the DataFrames into BigQuery with the following code (but implement process in future)
 #upload_all_dfs("data/", mode="replace")
 
-st.title("Data Dashboard & SQL Query App")
+st.title("Data Dashboard & SQL Query")
 
-view = st.radio("Choose a view:", ["Dashboard", "Query Database"])
+tab1, tab2, tab3 = st.tabs(["Dashboard", "Query Database", "System Metrics"])
 
 # dashboard
-if view == "Dashboard":
+with tab1:
     st.header("Dashboard")
 
-else:
+    tableau_url = os.getenv('TABLEAU_URL')
+    # Embedding Tableau data visualization using iframe
+    st.components.v1.iframe(tableau_url, height=800, width=1200)
+
+with tab2:
     st.header("SQL Query Interface")
     # built-in queries
     queries = {
@@ -322,22 +405,22 @@ else:
     choice = st.selectbox("Quick query:", list(queries.keys()))
     #################
     # function that prepends DATASET_ID to table references or keeps the same
-    #################
     def prepend_dataset(query):
-        #################
-        # helper function that determines if the query needs prepend or not
-        #################
+        
+        # find all CTE names
+        cte_names = re.findall(r'WITH\s+(\w+)\s+AS', query, flags=re.IGNORECASE)
+        
         def replacer(match):
-            keyword = match.group(1)  # FROM or JOIN
-            table = match.group(2)    # the actual table name
-            # skip if already qualified or backticked
-            if '.' in table or table.startswith('`'):
+            keyword = match.group(1)
+            table = match.group(2)
+            if table in cte_names or '.' in table or table.startswith('`'):
                 return f"{keyword} {table}"
             return f"{keyword} `{DATASET_ID}.{table}`"
-      
-        # Match FROM or JOIN followed by whitespace and a word
-        pattern = r"\b(FROM|JOIN)\s+([`]?[\w]+[`]?)"
+        
+        pattern = r"\b(FROM|JOIN|CREATE\s+OR\s+REPLACE\s+TABLE|CREATE\s+TABLE)\s+([`]?[\w]+[`]?)"
         return re.sub(pattern, replacer, query, flags=re.IGNORECASE)
+
+
 
     # text area for user input
     user_query = st.text_area(
@@ -349,10 +432,58 @@ else:
     # automatically fix dataset references
     full_query = prepend_dataset(user_query)
 
+    # query cost estimator (BigQuery dry-run)
+    if st.button("Estimate Query Cost"):
+      try:
+          job_config = bigquery.QueryJobConfig(dry_run=True, use_query_cache=False)
+          query_job = client.query(full_query, job_config=job_config)
+          processed_gb = query_job.total_bytes_processed / 1e9
+          st.info(f"Query will process approximately {processed_gb:.2f} GB.")
+      except Exception as e:
+          st.error(f"Failed to estimate cost: {e}")
+
     # runs query
     if st.button("Run Query"):
         with st.spinner("Running query..."):
-            df = run_query(full_query)
+            df = cached_run_query(full_query)
             if not df.empty:
                 st.success(f"Returned {len(df)} rows")
                 st.dataframe(df)
+
+with tab3:
+    st.header("System Metrics")
+    st.subheader("Data Summary")
+
+    tables = ["segments", "drives", "cameras", "images"]
+
+    for table in tables:
+        try:
+            query = f"SELECT COUNT(*) AS total_rows FROM `{DATASET_ID}.{table}`"
+            count_df = run_query(query)
+
+            if not count_df.empty:
+                total = int(count_df.iloc[0]['total_rows'])
+                st.metric(label=f"{table}", value=f"{total:,}")
+            else:
+                st.warning(f"No data returned for {table}")
+        except Exception as e:
+            st.error(f"Error fetching {table} metrics: {e}")
+    
+    st.subheader("Storage Overview")
+    try:
+        size_query = f"""
+        SELECT
+          table_id,
+          row_count,
+          ROUND(size_bytes / POW(1024,3), 4) AS size_gb
+        FROM `{DATASET_ID}.__TABLES__`
+        ORDER BY size_gb DESC
+        """
+
+        size_df = run_query(size_query)
+        if not size_df.empty:
+            st.dataframe(size_df)
+        else:
+            st.warning("No storage data found.")
+    except Exception as e:
+        st.error(f"Error fetching table sizes: {e}")
