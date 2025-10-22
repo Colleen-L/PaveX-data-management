@@ -62,7 +62,9 @@ Each team member should create their own `.env` file in the project root:
 ```bash
 # .env file
 GCP_PROJECT_ID=your-project-id
-TABLEAU_URL=your-tableau-embed-url
+POWERBI_URL=your-powerbi-embed-url
+# OR use Tableau instead:
+# TABLEAU_URL=your-tableau-embed-url
 ```
 
 **Important**: The `.env` file contains personal project settings and should NOT be committed to git. It's already in `.gitignore`.

@@ -371,9 +371,20 @@ tab1, tab2, tab3 = st.tabs(["Dashboard", "Query Database", "System Metrics"])
 with tab1:
     st.header("Dashboard")
 
+    # Support both PowerBI and Tableau
+    powerbi_url = os.getenv('POWERBI_URL')
     tableau_url = os.getenv('TABLEAU_URL')
-    # Embedding Tableau data visualization using iframe
-    st.components.v1.iframe(tableau_url, height=800, width=1200)
+
+    if powerbi_url:
+        st.subheader("PowerBI Dashboard")
+        # Embedding PowerBI visualization using iframe
+        st.components.v1.iframe(powerbi_url, height=800, scrolling=True)
+    elif tableau_url:
+        st.subheader("Tableau Dashboard")
+        # Embedding Tableau data visualization using iframe
+        st.components.v1.iframe(tableau_url, height=800, width=1200)
+    else:
+        st.info("📊 No dashboard configured. Set POWERBI_URL or TABLEAU_URL in .env file.")
 
 with tab2:
     st.header("SQL Query Interface")

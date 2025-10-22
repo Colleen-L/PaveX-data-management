@@ -32,3 +32,9 @@ INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
 INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
 INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
 INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+WARNING:google.auth._default:No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
