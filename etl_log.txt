@@ -1,2 +1,34 @@
 INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
 INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+WARNING:google.auth._default:No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+WARNING:google.auth._default:No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+WARNING:google.auth._default:No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+WARNING:google.auth._default:No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+WARNING:google.auth._default:No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+WARNING:google.auth._default:No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+WARNING:google.auth._default:No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+WARNING:google.auth._default:No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+INFO:root:Table segments doesn't exist yet or query failed: 'Source_File'. Processing all files.
+INFO:root:Successfully uploaded segments_data_round3_day1_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day2_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day4_classification_1.json
+INFO:root:Successfully uploaded segments_data_round3_day5_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day6_classification.json
+WARNING:google.auth._default:No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+WARNING:google.auth._default:No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
+INFO:root:Dataset confirmed or created: vippavexdata.autonomous_dataset
