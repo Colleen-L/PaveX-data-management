@@ -1,2 +1,360 @@
 INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
 INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11d5f9810>: Failed to establish a new connection: [Errno 51] Network is unreachable')': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11d5f8b90>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11d5f9310>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11d5f8f50>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11d5fa490>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11d5fafd0>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x1031fe5d0>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x1031fed50>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11eaec550>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11eaec910>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11eaec190>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11eaecf50>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11eaeda90>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11eaed6d0>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11eaede50>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11eaee210>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11eaee490>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11eaee710>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11eaeed50>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11eaeefd0>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x11eaef250>: Failed to resolve 'oauth2.googleapis.com' ([Errno 8] nodename nor servname provided, or not known)")': /token
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Successfully uploaded segments_data_round3_day4_classification_1.json
+INFO:root:Successfully uploaded segments_data_round3_day6_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day5_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day2_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day1_classification.json
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Successfully uploaded segments_data_round3_day4_classification_1.json
+INFO:root:Successfully uploaded segments_data_round3_day6_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day5_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day2_classification.json
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Successfully uploaded segments_data_round3_day4_classification_1.json
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Successfully uploaded segments_data_round3_day4_classification_1.json
+INFO:root:Successfully uploaded segments_data_round3_day6_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day5_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day2_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day1_classification.json
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Successfully uploaded segments_data_round3_day4_classification_1.json
+INFO:root:Successfully uploaded segments_data_round3_day6_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day5_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day2_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day1_classification.json
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Successfully uploaded segments_data_round3_day4_classification_1.json
+INFO:root:Successfully uploaded segments_data_round3_day6_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day5_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day2_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day1_classification.json
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Successfully uploaded segments_data_round3_day4_classification_1.json
+INFO:root:Successfully uploaded segments_data_round3_day6_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day5_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day2_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day1_classification.json
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Successfully uploaded segments_data_round3_day4_classification_1.json
+INFO:root:Successfully uploaded segments_data_round3_day6_classification.json
+INFO:root:Successfully uploaded segments_data_round3_day5_classification.json
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Uploaded 3446 rows to quick-summer-474418-e2.autonomous_dataset.segments
+INFO:root:Uploaded 4741 rows to quick-summer-474418-e2.autonomous_dataset.drives
+INFO:root:Uploaded 9482 rows to quick-summer-474418-e2.autonomous_dataset.cameras
+INFO:root:Uploaded 3844044 rows to quick-summer-474418-e2.autonomous_dataset.images
+INFO:root:Uploaded 3844272 rows to quick-summer-474418-e2.autonomous_dataset.camera_images
+INFO:root:Uploaded 8 rows to quick-summer-474418-e2.autonomous_dataset.categories
+INFO:root:Uploaded 2716277 rows to quick-summer-474418-e2.autonomous_dataset.image_categories
+INFO:root:Successfully uploaded all data
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
+INFO:root:Dataset confirmed or created: quick-summer-474418-e2.autonomous_dataset
