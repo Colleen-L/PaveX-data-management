@@ -24,15 +24,33 @@ from streamlit_folium import st_folium
 from shapely.geometry import LineString, MultiLineString
 
 # initialize BigQuery Client
-client = bigquery.Client()
-PROJECT_ID = client.project
+# Option 1: Set via environment variable (recommended for team projects)
+# Option 2: Auto-detect from Application Default Credentials
+PROJECT_ID = os.getenv("GCP_PROJECT_ID")
+
+if PROJECT_ID:
+    client = bigquery.Client(project=PROJECT_ID)
+else:
+    # Try to auto-detect from credentials
+    try:
+        import google.auth
+        credentials, project = google.auth.default()
+        if project:
+            PROJECT_ID = project
+            client = bigquery.Client(project=PROJECT_ID, credentials=credentials)
+        else:
+            raise ValueError("No project ID found in credentials")
+    except Exception as e:
+        raise Exception(
+            "Could not determine Google Cloud project ID. "
+            "Please set environment variable: GCP_PROJECT_ID=your-project-id "
+            "Or run: gcloud config set project your-project-id && gcloud auth application-default login"
+        )
 
 # define dataset name and ID correctly
 DATASET_NAME = "autonomous_dataset"
 DATASET_ID = f"{PROJECT_ID}.{DATASET_NAME}"
 
-# recreate the client (explicit project)
-client = bigquery.Client(project=PROJECT_ID)
 
 # create dataset if it doesn't exist
 dataset = bigquery.Dataset(DATASET_ID)
@@ -48,7 +66,16 @@ except Exception as e:
 # for future processing
 ##########################################
 def get_unprocessed_files(json_folder):
-    return [f for f in os.listdir(json_folder) if f.endswith(".json")]
+    try:
+        # Try to get already processed files from BigQuery
+        processed = set(run_query(f"SELECT DISTINCT Source_File FROM `{DATASET_ID}.segments`")['Source_File'])
+    except Exception as e:
+        # If table doesn't exist yet (first run), return all files
+        logging.info(f"Table segments doesn't exist yet or query failed: {e}. Processing all files.")
+        processed = set()
+
+    all_files = [f for f in os.listdir(json_folder) if f.endswith(".json")]
+    return [f for f in all_files if f not in processed]
 
 ##########################################
 # helper function that obtains timestamp for the data;
@@ -510,6 +537,22 @@ tab1, tab2, tab3 = st.tabs(["Dashboard", "Query Database", "System Metrics"])
 
 # dashboard
 with tab1:
+    st.header("Dashboard")
+
+    # Support both PowerBI and Tableau
+    powerbi_url = os.getenv('POWERBI_URL')
+    tableau_url = os.getenv('TABLEAU_URL')
+
+    if powerbi_url:
+        st.subheader("PowerBI Dashboard")
+        # Embedding PowerBI visualization using iframe
+        st.components.v1.iframe(powerbi_url, height=800, scrolling=True)
+    elif tableau_url:
+        st.subheader("Tableau Dashboard")
+        # Embedding Tableau data visualization using iframe
+        st.components.v1.iframe(tableau_url, height=800, width=1200)
+    else:
+        st.info("📊 No dashboard configured. Set POWERBI_URL or TABLEAU_URL in .env file.")
     st.header("Interactive Tableau Dashboard")
 
     if "heatmap_obj" not in st.session_state:
