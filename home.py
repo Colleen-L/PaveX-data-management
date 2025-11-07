@@ -20,6 +20,7 @@ logging.basicConfig(filename="etl_log.txt", level=logging.INFO)
 import geopandas as gpd
 import folium
 from folium.plugins import HeatMap
+from folium import Map, PolyLine
 from streamlit_folium import st_folium
 from shapely.geometry import LineString, MultiLineString
 
@@ -438,57 +439,63 @@ def load_heatmap_data():
     """)
     return gdf, segment_counts
 
-def build_heatmap(gdf, segment_counts):
-    gdf["Seg_ID"] = gdf["Seg_ID"].astype(str)
+def build_polyline_map(gdf, segment_counts):
+    # Normalize IDs
+    gdf["Seg_ID"] = gdf["Seg_ID"].apply(lambda x: str(int(float(x))) if pd.notnull(x) else None)
     gdf["segment_name_key"] = "segment_" + gdf["Seg_ID"]
-
+    segment_counts["segment_name"] = segment_counts["segment_name"].astype(str).str.strip()
+    
+    # Merge counts
     gdf = gdf.merge(segment_counts, left_on="segment_name_key", right_on="segment_name", how="left")
-    gdf["total_classifications"] = gdf["total_classifications"].fillna(0)
-
-    heat_data = []
-    for _, row in gdf.iterrows():
+    
+    # Drop missing data
+    gdf = gdf.dropna(subset=["geometry", "total_classifications"])
+    if gdf.empty:
+        st.warning("No valid classification data to plot.")
+        return None
+    
+    # Convert CRS for folium
+    gdf_wgs = gdf.to_crs(epsg=4326)
+    
+    # Map center
+    center = [gdf_wgs.geometry.centroid.y.mean(), gdf_wgs.geometry.centroid.x.mean()]
+    m = Map(location=center, zoom_start=11, tiles="cartodbpositron", control_scale=True)
+    
+    # Severity normalization
+    max_class = gdf_wgs["total_classifications"].max()
+    gdf_wgs["severity_norm"] = gdf_wgs["total_classifications"] / max_class
+    
+    # Color thresholds
+    q1 = gdf_wgs["severity_norm"].quantile(0.33)
+    q2 = gdf_wgs["severity_norm"].quantile(0.66)
+    
+    for _, row in gdf_wgs.iterrows():
         geom = row.geometry
-        weight = float(row["total_classifications"])  # <- convert to float
+        sev = row["severity_norm"]
+        
+        # Determine color
+        if sev <= q1:
+            color = "green"
+        elif sev <= q2:
+            color = "orange"
+        else:
+            color = "red"
+        
+        # Sample coordinates for long lines
+        coords = []
         if isinstance(geom, LineString):
-            for coord in geom.coords:
-                heat_data.append([float(coord[1]), float(coord[0]), weight])
+            coords = list(geom.coords)[::max(1, len(geom.coords)//20)]  # every ~20th point
         elif isinstance(geom, MultiLineString):
             for line in geom.geoms:
-                for coord in line.coords:
-                    heat_data.append([float(coord[1]), float(coord[0]), weight])
-
-    # using latitude and longitude
-    gdf_wgs = gdf.to_crs(epsg=4326)
-    center = [gdf_wgs.geometry.centroid.y.mean(), gdf_wgs.geometry.centroid.x.mean()]
-
-    # Normalize weights to 0-1 for heatmap intensity
-    weights = [row[2] for row in heat_data]
-    max_weight = max(weights) if weights else 1  # fallback if list is empty
-
-    if max_weight == 0:  # prevent division by zero
-        heat_data_normalized = [
-            [float(lat), float(lon), 0.0] for lat, lon, w in heat_data
-        ]
-    else:
-        heat_data_normalized = [
-            [float(lat), float(lon), float(w) / max_weight] for lat, lon, w in heat_data
-        ]
-
-    m = folium.Map(location=center, zoom_start=11, tiles="OpenStreetMap")
-    max_weight = max([w for _, _, w in heat_data]) if heat_data else 1
-
-    HeatMap(
-        heat_data_normalized,
-        radius=15,
-        blur=10,
-        min_opacity=0.3,
-        gradient={0.0: "green", 0.5: "yellow", 1.0: "red"},
-        max_val=max_weight  # this stabilizes colors across zooms
-    ).add_to(m)
-
+                coords.extend(list(line.coords)[::max(1, len(line.coords)//20)])
+        
+        # Convert coords to lat/lon
+        latlon = [[lat, lon] for lon, lat in coords]
+        if latlon:
+            PolyLine(latlon, color=color, weight=4, opacity=0.7).add_to(m)
     return m
 
-  
+
 def load_tableau():
     #####
     #USING TABLEAU
@@ -552,36 +559,58 @@ with tab1:
         # Embedding Tableau data visualization using iframe
         st.components.v1.iframe(tableau_url, height=800, width=1200)
     else:
-        st.info("📊 No dashboard configured. Set POWERBI_URL or TABLEAU_URL in .env file.")
+        st.info("No dashboard configured. Set POWERBI_URL or TABLEAU_URL in .env file.")
     st.header("Interactive Tableau Dashboard")
 
-    if "heatmap_obj" not in st.session_state:
-        st.session_state.heatmap_obj = None
+    # if "heatmap_obj" not in st.session_state:
+    #     st.session_state.heatmap_obj = None
 
-    # Button logic
+    # # Button logic
+    # col1, col2 = st.columns([1, 1])
+    # with col1:
+    #     if st.button("Load Heatmap"):
+    #         gdf, segment_counts = load_heatmap_data()
+    #         st.session_state.heatmap_obj = build_circlemap(gdf, segment_counts)
+    #         st.success("Heatmap loaded successfully!")
+
+    # with col2:
+    #     if st.button("Clear Heatmap"):
+    #         st.session_state.heatmap_obj = None
+    #         st.warning("Heatmap cleared.")
+
+    # # Display map if exists
+    # if st.session_state.heatmap_obj:
+    #     st_folium(
+    #         st.session_state.heatmap_obj,
+    #         width=900,
+    #         height=600,
+    #         key="persistent_heatmap",
+    #         returned_objects=[],  # prevents zoom/pan re-runs
+    #     )
+    
+    if "polyline_map_obj" not in st.session_state:
+        st.session_state.polyline_map_obj = None
+
     col1, col2 = st.columns([1, 1])
     with col1:
-        if st.button("Load Heatmap"):
+        if st.button("Load Map"):
             gdf, segment_counts = load_heatmap_data()
-            st.session_state.heatmap_obj = build_heatmap(gdf, segment_counts)
-            st.success("Heatmap loaded successfully!")
+            st.session_state.polyline_map_obj = build_polyline_map(gdf, segment_counts)
+            st.success("Polyline map loaded successfully!")
 
     with col2:
-        if st.button("Clear Heatmap"):
-            st.session_state.heatmap_obj = None
-            st.warning("Heatmap cleared.")
+        if st.button("Clear Map"):
+            st.session_state.polyline_map_obj = None
+            st.warning("Map cleared.")
 
-    # Display map if exists
-    if st.session_state.heatmap_obj:
+    if st.session_state.polyline_map_obj:
         st_folium(
-            st.session_state.heatmap_obj,
+            st.session_state.polyline_map_obj,
             width=900,
             height=600,
-            key="persistent_heatmap",
-            returned_objects=[],  # prevents zoom/pan re-runs
+            key="persistent_polyline_map",
+            returned_objects=[],  # prevents re-runs when zooming
         )
-
-
 
 with tab2:
     st.header("SQL Query Interface")
