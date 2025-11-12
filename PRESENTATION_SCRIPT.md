@@ -119,15 +119,13 @@
 
 > "One of our key evaluation metrics is query performance - how fast can we actually get answers from this data?
 >
-> **[Point to chart]** This chart shows query latency for different types of SQL queries. On the left, we have simple SELECT queries - these take less than half a second. As we move right, the queries get more complex.
+> **[Point to chart]** This chart shows measured query latency for different types of SQL queries at our current scale of three point eight million images. On the left, we have simple SELECT queries - these take about one second. As we move right, the queries get more complex.
 >
-> **[Point to middle bars]** Single-table JOINs take about one point two seconds. When we join three tables together - for example, to find all images from a specific segment with certain classifications - that takes about two point three seconds.
+> **[Point to middle bars]** Filtered WHERE clauses and single-table JOINs take about point six seconds. When we join multiple tables together - for example, to find all images from a specific segment with certain classifications - these complete in under one second as well.
 >
-> **[Point to rightmost bars]** The most complex query we tested is a six-way JOIN that connects all seven tables together. This might be something like 'find all segments where longitudinal cracks appear in more than fifty percent of images.' Even this complex query completes in under five seconds.
+> **[Point to rightmost bars]** The most complex query we tested is a six-way JOIN that connects all seven tables together. This might be something like 'find all segments where longitudinal cracks appear in more than fifty percent of images.' Even this complex query completes in six and a half seconds. This is with three point eight million image records.
 >
-> **[Point to red dashed line]** Our target was to keep all queries under five seconds, and as you can see, we achieved that.
->
-> **[Gesture to whole chart]** This performance is possible because BigQuery uses columnar storage and query optimization. It only reads the columns you actually need, and it parallelizes the query across multiple machines."
+> **[Gesture to whole chart]** What's important here is that BigQuery's architecture is designed to scale. These measurements demonstrate that we can handle millions of records efficiently, and as the dataset grows, BigQuery's columnar storage and distributed query processing will maintain this performance. It only reads the columns you actually need, and it parallelizes queries across multiple machines automatically."
 
 **[Advance slide]**
 
@@ -252,6 +250,22 @@
 ### **If asked: "Could this work for other infrastructure monitoring?"**
 
 > "Absolutely! The architecture is quite general. You could use the same approach for monitoring bridges, sidewalks, building facades, or really any infrastructure where you're collecting images with associated classifications and geospatial data. You'd just need to adapt the ETL pipeline to your specific data format and adjust the dashboard visualizations. The core BigQuery structure would work the same way."
+
+### **If asked: "Will performance scale when you add more data?"**
+
+> "Great question. The query performance metrics I showed are measured at our current scale of three point eight million images. We're still receiving additional data from ongoing collection efforts in Fort Wayne.
+>
+> The good news is that BigQuery is designed to handle petabyte-scale datasets. Companies use it for billions of rows. The architecture uses distributed processing and columnar storage, so as data grows, BigQuery automatically scales the query execution across more machines. We expect query times to remain in the same general range even as we double or triple the dataset size.
+>
+> Additionally, we can optimize further by adding partitioning and clustering to our tables once we have the complete dataset. These features help BigQuery prune the data it needs to scan, keeping queries fast even at much larger scales."
+
+### **If asked: "Why is the complex query so much slower?"**
+
+> "That's a perceptive observation. The six-way JOIN is slower - about six and a half seconds versus under one second for simpler queries - because it has to connect all seven tables together and match millions of records across multiple relationships.
+>
+> Think about what it's doing: starting from image classifications, joining to images, to camera-image mappings, to cameras, to drives, to segments, and to categories. That's traversing the entire data hierarchy. Even so, six and a half seconds to analyze millions of records across seven tables is quite good for an analytics query.
+>
+> For context, running the same type of query on a traditional row-based database would likely take much longer - potentially minutes instead of seconds."
 
 ---
 

@@ -86,9 +86,9 @@
 >
 > ### **Performance** [Point to Query Performance chart]
 >
-> We benchmarked query performance with different complexities. Simple selects are sub-second. Single joins are about one second. Our most complex query - a six-way join across all tables - completes in four point five seconds. This is with two point nine million image records.
+> We measured query performance at our current scale of three point eight million images. Simple selects take about one second. Filtered queries and single joins complete in under a second - about point six seconds. Our most complex query - a six-way join across all tables - completes in six and a half seconds.
 >
-> BigQuery achieves this through columnar storage and query parallelization. It can read from multiple machines simultaneously.
+> What's important is that BigQuery's architecture is designed to scale. It achieves this performance through columnar storage and distributed query processing. As our dataset grows with additional data collection, the system will maintain similar performance by automatically parallelizing queries across more machines.
 >
 > ### **Visualization** [Point to Dashboard - show live if possible]
 >
@@ -161,6 +161,14 @@
 ### **Q: "How does this compare to commercial solutions?"**
 
 > "Commercial pavement management systems exist - companies like Roadbotics and others. Our advantage is customization and cost. We can adapt our system exactly to research needs or city-specific requirements. And our operational costs are under a dollar per month versus potentially thousands for commercial solutions. The trade-off is we don't have the polish and support of a commercial product."
+
+### **Q: "Will query performance hold up as you add more data?"**
+
+> "Excellent question. The performance numbers I showed are measured at our current scale of three point eight million images. We're still receiving additional data from ongoing collection in Fort Wayne.
+>
+> The key is that BigQuery is built to scale. Companies use it for petabyte-scale datasets with billions of rows. The architecture uses distributed processing - as data grows, it automatically spreads the work across more machines. We expect similar query times even when we double or triple the dataset.
+>
+> Plus, we can add optimizations like table partitioning and clustering once we have the full dataset. These help BigQuery skip scanning irrelevant data, keeping queries fast at larger scales."
 
 ---
 

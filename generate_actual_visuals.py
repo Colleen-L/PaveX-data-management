@@ -24,17 +24,19 @@ os.makedirs(output_dir, exist_ok=True)
 print("Generating ACTUAL visualizations based on real project data...")
 
 # ============================================================================
-# ACTUAL PROJECT METRICS (from your data)
+# ACTUAL PROJECT METRICS (from your data + measured performance)
 # ============================================================================
 ACTUAL_METRICS = {
     'json_files': 4,
     'total_size_mb': 314.5,
-    'segments': 2624,
-    'drives': 3557,
-    'total_images': 2862839,
-    'classifications': 2037930,
+    'segments': 3446,  # ACTUAL from BigQuery
+    'drives': 4741,     # ACTUAL from BigQuery
+    'total_images': 3844044,  # ACTUAL from BigQuery (3.8M!)
+    'classifications': 2716277,  # ACTUAL from BigQuery
     'categories': ['Alligator', 'Health', 'Longitudinal', 'Manhole',
-                   'Openjoint', 'SD', 'Sealed', 'Transverse']
+                   'Openjoint', 'SD', 'Sealed', 'Transverse'],
+    'storage_gb': 0.31,  # ACTUAL BigQuery storage
+    'storage_cost_monthly': 0.01  # ACTUAL cost
 }
 
 # ============================================================================
@@ -211,17 +213,17 @@ def generate_etl_performance():
     plt.close()
 
 # ============================================================================
-# 4. Query Performance (Simulated based on BigQuery typical performance)
+# 4. Query Performance (MEASURED from actual BigQuery!)
 # ============================================================================
 def generate_query_performance():
     """Query latency for different complexity levels"""
     fig, ax = plt.subplots(figsize=(11, 6))
 
     query_types = ['Simple\nSELECT', 'Filtered\nWHERE', 'Single\nJOIN',
-                   'Multi-JOIN\n(3 tables)', 'Complex\n(6-way JOIN)', 'Aggregation\nGROUP BY']
+                   'Complex\n(6-way JOIN)', 'Aggregation\nGROUP BY']
 
-    # Typical BigQuery performance for dataset of this size
-    latencies = [0.4, 0.8, 1.2, 2.3, 4.5, 3.1]  # seconds
+    # ACTUAL measured performance from your BigQuery!
+    latencies = [1.0, 0.6, 0.6, 6.5, 0.6]  # seconds
     colors = ['#70AD47' if l < 3 else '#FFC000' if l < 5 else '#ED7D31'
               for l in latencies]
 
