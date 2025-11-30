@@ -8,4 +8,6 @@ NUL
 vippavexdata-b596192d353c.json
 upload_paser_to_bigquery.py
 export_paser_csv.py
+check_paser_join.py
 PASER_segments.csv
+fix_paser_relationship.py
