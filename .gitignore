@@ -6,3 +6,6 @@ __pycache__/
 .claude/
 NUL
 vippavexdata-b596192d353c.json
+upload_paser_to_bigquery.py
+export_paser_csv.py
+PASER_segments.csv
