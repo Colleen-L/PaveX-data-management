@@ -546,79 +546,82 @@ st.title("Data Dashboard & SQL Query")
 if st.button("Upload JSON to BigQuery"):
     upload_all_dfs("data/", client, DATASET_ID, mode="replace")
 
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["Dashboard", "Query Database", "System Metrics", "PASER Road Assessment", "Road Defects Analysis"])
+# tab1, tab2, tab3, tab4, tab5 = st.tabs(["Dashboard", "Query Database", "System Metrics", "PASER Road Assessment", "Road Defects Analysis"])
 
-# dashboard
-with tab1:
-    st.header("Dashboard")
+tab1, tab2, tab3, tab4 = st.tabs(["Query Database", "System Metrics", "PASER Road Assessment Dashboard", "Road Defects Analysis Dashboard"])
 
-    # Support both PowerBI and Tableau
-    powerbi_url = os.getenv('POWERBI_URL')
-    tableau_url = os.getenv('TABLEAU_URL')
 
-    if tableau_url:
-        st.subheader("Tableau Dashboard")
-        # Embedding Tableau data visualization using iframe
-        st.components.v1.iframe(tableau_url, height=800, width=1200)
-    elif powerbi_url:
-        st.subheader("PowerBI Dashboard")
-        # Embedding PowerBI visualization using iframe
-        st.components.v1.iframe(powerbi_url, height=800, scrolling=True)
-    else:
-        st.info("No dashboard configured. Set POWERBI_URL or TABLEAU_URL in .env file.")
-    # st.header("Interactive Tableau Dashboard")
+# # dashboard
+# with tab1:
+#     st.header("Dashboard")
 
-    # if "heatmap_obj" not in st.session_state:
-    #     st.session_state.heatmap_obj = None
+#     # Support both PowerBI and Tableau
+#     powerbi_url = os.getenv('POWERBI_URL')
+#     tableau_url = os.getenv('TABLEAU_URL')
 
-    # # Button logic
-    # col1, col2 = st.columns([1, 1])
-    # with col1:
-    #     if st.button("Load Heatmap"):
-    #         gdf, segment_counts = load_heatmap_data()
-    #         st.session_state.heatmap_obj = build_circlemap(gdf, segment_counts)
-    #         st.success("Heatmap loaded successfully!")
+#     if tableau_url:
+#         st.subheader("Tableau Dashboard")
+#         # Embedding Tableau data visualization using iframe
+#         st.components.v1.iframe(tableau_url, height=800, width=1200)
+#     elif powerbi_url:
+#         st.subheader("PowerBI Dashboard")
+#         # Embedding PowerBI visualization using iframe
+#         st.components.v1.iframe(powerbi_url, height=800, scrolling=True)
+#     else:
+#         st.info("No dashboard configured. Set POWERBI_URL or TABLEAU_URL in .env file.")
+#     # st.header("Interactive Tableau Dashboard")
 
-    # with col2:
-    #     if st.button("Clear Heatmap"):
-    #         st.session_state.heatmap_obj = None
-    #         st.warning("Heatmap cleared.")
+#     # if "heatmap_obj" not in st.session_state:
+#     #     st.session_state.heatmap_obj = None
 
-    # # Display map if exists
-    # if st.session_state.heatmap_obj:
-    #     st_folium(
-    #         st.session_state.heatmap_obj,
-    #         width=900,
-    #         height=600,
-    #         key="persistent_heatmap",
-    #         returned_objects=[],  # prevents zoom/pan re-runs
-    #     )
+#     # # Button logic
+#     # col1, col2 = st.columns([1, 1])
+#     # with col1:
+#     #     if st.button("Load Heatmap"):
+#     #         gdf, segment_counts = load_heatmap_data()
+#     #         st.session_state.heatmap_obj = build_circlemap(gdf, segment_counts)
+#     #         st.success("Heatmap loaded successfully!")
+
+#     # with col2:
+#     #     if st.button("Clear Heatmap"):
+#     #         st.session_state.heatmap_obj = None
+#     #         st.warning("Heatmap cleared.")
+
+#     # # Display map if exists
+#     # if st.session_state.heatmap_obj:
+#     #     st_folium(
+#     #         st.session_state.heatmap_obj,
+#     #         width=900,
+#     #         height=600,
+#     #         key="persistent_heatmap",
+#     #         returned_objects=[],  # prevents zoom/pan re-runs
+#     #     )
     
-    if "polyline_map_obj" not in st.session_state:
-        st.session_state.polyline_map_obj = None
+#     if "polyline_map_obj" not in st.session_state:
+#         st.session_state.polyline_map_obj = None
 
-    col1, col2 = st.columns([1, 1])
-    with col1:
-        if st.button("Load Map"):
-            gdf, segment_counts = load_heatmap_data()
-            st.session_state.polyline_map_obj = build_polyline_map(gdf, segment_counts)
-            st.success("Polyline map loaded successfully!")
+#     col1, col2 = st.columns([1, 1])
+#     with col1:
+#         if st.button("Load Map"):
+#             gdf, segment_counts = load_heatmap_data()
+#             st.session_state.polyline_map_obj = build_polyline_map(gdf, segment_counts)
+#             st.success("Polyline map loaded successfully!")
 
-    with col2:
-        if st.button("Clear Map"):
-            st.session_state.polyline_map_obj = None
-            st.warning("Map cleared.")
+#     with col2:
+#         if st.button("Clear Map"):
+#             st.session_state.polyline_map_obj = None
+#             st.warning("Map cleared.")
 
-    if st.session_state.polyline_map_obj:
-        st_folium(
-            st.session_state.polyline_map_obj,
-            width=900,
-            height=600,
-            key="persistent_polyline_map",
-            returned_objects=[],  # prevents re-runs when zooming
-        )
+#     if st.session_state.polyline_map_obj:
+#         st_folium(
+#             st.session_state.polyline_map_obj,
+#             width=900,
+#             height=600,
+#             key="persistent_polyline_map",
+#             returned_objects=[],  # prevents re-runs when zooming
+#         )
 
-with tab2:
+with tab1:
     st.header("SQL Query Interface")
     # built-in queries
     queries = {
@@ -718,7 +721,7 @@ with tab2:
                 st.success(f"Returned {len(df)} rows")
                 st.dataframe(df)
 
-with tab3:
+with tab2:
     st.header("System Metrics")
     st.subheader("Data Summary")
 
@@ -757,9 +760,9 @@ with tab3:
         st.error(f"Error fetching table sizes: {e}")
 
 # PASER Dashboard tab
-with tab4:
+with tab3:
     show_paser_dashboard()
 
 # Road Defects Dashboard tab
-with tab5:
+with tab4:
     show_defects_dashboard()
