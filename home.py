@@ -24,6 +24,12 @@ from folium import Map, PolyLine
 from streamlit_folium import st_folium
 from shapely.geometry import LineString, MultiLineString
 
+# Import PASER dashboard
+from paser_dashboard_local import show_paser_dashboard
+
+# Import Defects dashboard
+from defects_dashboard_local import show_defects_dashboard
+
 # initialize BigQuery Client
 # Option 1: Set via environment variable (recommended for team projects)
 # Option 2: Auto-detect from Application Default Credentials
@@ -540,7 +546,7 @@ st.title("Data Dashboard & SQL Query")
 if st.button("Upload JSON to BigQuery"):
     upload_all_dfs("data/", client, DATASET_ID, mode="replace")
 
-tab1, tab2, tab3 = st.tabs(["Dashboard", "Query Database", "System Metrics"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["Dashboard", "Query Database", "System Metrics", "PASER Road Assessment", "Road Defects Analysis"])
 
 # dashboard
 with tab1:
@@ -550,14 +556,14 @@ with tab1:
     powerbi_url = os.getenv('POWERBI_URL')
     tableau_url = os.getenv('TABLEAU_URL')
 
-    if powerbi_url:
-        st.subheader("PowerBI Dashboard")
-        # Embedding PowerBI visualization using iframe
-        st.components.v1.iframe(powerbi_url, height=800, scrolling=True)
-    elif tableau_url:
+    if tableau_url:
         st.subheader("Tableau Dashboard")
         # Embedding Tableau data visualization using iframe
         st.components.v1.iframe(tableau_url, height=800, width=1200)
+    elif powerbi_url:
+        st.subheader("PowerBI Dashboard")
+        # Embedding PowerBI visualization using iframe
+        st.components.v1.iframe(powerbi_url, height=800, scrolling=True)
     else:
         st.info("No dashboard configured. Set POWERBI_URL or TABLEAU_URL in .env file.")
     st.header("Interactive Tableau Dashboard")
@@ -749,3 +755,11 @@ with tab3:
             st.warning("No storage data found.")
     except Exception as e:
         st.error(f"Error fetching table sizes: {e}")
+
+# PASER Dashboard tab
+with tab4:
+    show_paser_dashboard()
+
+# Road Defects Dashboard tab
+with tab5:
+    show_defects_dashboard()
