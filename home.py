@@ -566,7 +566,7 @@ with tab1:
         st.components.v1.iframe(powerbi_url, height=800, scrolling=True)
     else:
         st.info("No dashboard configured. Set POWERBI_URL or TABLEAU_URL in .env file.")
-    st.header("Interactive Tableau Dashboard")
+    # st.header("Interactive Tableau Dashboard")
 
     # if "heatmap_obj" not in st.session_state:
     #     st.session_state.heatmap_obj = None
